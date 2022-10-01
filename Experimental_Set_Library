@@ -21,7 +21,7 @@ P a
 --------------
  P a
  
-QUESTION: shall we use a different format, put the statements together where the converse holds?
+QUESTION: shall we use a different format, putting the statements together using double arrows where the converse holds?
 
 
  Collect_cong
@@ -31,13 +31,16 @@ QUESTION: shall we use a different format, put the statements together where the
 {x. P x} = {x. Q x}
   
   
-   TIM: Should the hypothesis say P x <-> Q x rather than P x = Q x ?
+   TIM: Should the hypothesis say P x ⟷  Q x rather than P x = Q x ? Angeliki: it's stated like this in the HOL library,
+in the sense that P x is a boolean: it takes only either value True or False so here it expresses that the truth values are equal, hence the =. Shall we be using booleans? 
+ 
+
 
 
 set_eqI 
 
-∀ x. (x ∈ A —> x ∈ B)
-∀ x. (x ∈ B —> x ∈ A)
+∀ x. (x ∈ A  ⟶ x ∈ B)
+∀ x. (x ∈ B  ⟶ x ∈ A)
 ----------------
  A = B
 
@@ -45,8 +48,12 @@ set_eqI
 (QUESTION: 
 Shall we use double arrows instead of ∧?
 
-   TIM: How do you get these mathematical symbols? 
+   TIM: How do you get these mathematical symbols? Angeliki: I copy-pasted the text from the HOL Set theory using plain text but had added those strange arrows manually. Fixed the arrows now.
    TIM: I think we should also have an "intermediate" expansion of set_eq, which would be that A = B if A is a subset of B and B is a subset of A.
+Angeliki: I agree. The material on subsets gets introduced a bit later in the Set file, so I hadn't reached that part yet. 
+
+
+
 
 
 set_eq_iff  
@@ -54,17 +61,20 @@ set_eq_iff
 A = B 
 
 ------------
-∀x. ((x ∈ A -> x ∈ B ) ∧ (x ∈ B -> x ∈ A))
+∀x. ((x ∈ A  ⟶ x ∈ B ) ∧ (x ∈ B  ⟶ x ∈ A))
 
 
-(QUESTION: in the following, instead of a deduction, deducing that x \in A ∩ B  and vice-versa,  we have set equality. Shall we keep this format?)
+(QUESTION: in the following, instead of a deduction, deducing that x ∈ A ∩ B  and vice-versa,  we have set equality. Shall we keep this format?)
 
-   TIM: I think that for the program, deducing is more useful. That is, we rarely expand A ∩ B directly -- it is much more common to expand the statement x ∈ A ∩ B as x ∈ A ∧ x ∈ B.  Oh wait, you have that below. In that case I don't think I understand your question. What would an alternative format be? 
+   TIM: I think that for the program, deducing is more useful. That is, we rarely expand A ∩ B directly -- it is much more common to expand the statement x ∈ A ∩ B as x ∈ A ∧ x ∈ B.  Oh wait, you have that below. In that case I don't think I understand your question. What would an alternative format be?
+
+Angeliki: My question was if we should keep the format as in Int_def (equality of sets) or the one that I include later below as in Int_iff and IntI(or everything?) 
+A second question is if we shall include Int_iff together with IntI as one lemma with double implication?
+
 
 Int_def  
 
 A ∩ B = {x. x ∈ A ∧ x ∈ B}
-
 
 
 Alternatively:
@@ -77,7 +87,7 @@ c ∈ A ∩ B
 c ∈ A ∧ c ∈ B
 
 
-(QUESTION: shall we keep the above as it is or write it as two separate lemmas deducing c ∈ A and c ∈ B separately? See IntD1, IntD2.)
+(QUESTION: shall we keep the above as it is or write it as two separate lemmas deducing c ∈ A and c ∈ B separately? See IntD1, IntD2 in the HOL Set file.)
 
 IntI
 
