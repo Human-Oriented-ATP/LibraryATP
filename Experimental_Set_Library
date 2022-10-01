@@ -1,0 +1,124 @@
+
+Basics on sets. Taken from the HOL set library:
+
+https://www.cl.cam.ac.uk/research/hvg/Isabelle/dist/library/HOL/HOL/Set.html
+
+Please note: Here I include the name used in the HOL Library for easy reference. Of course, please feel free to make any modifications. I assume the style/formatting is subject to
+(significant) change.
+
+
+
+CollectI 
+
+P a
+-----------
+ a ∈ {x. P x}"
+ 
+
+ CollectD
+
+ a ∈ {x. P x} 
+--------------
+ P a
+ 
+QUESTION: shall we use a different format, put the statements together where the converse holds?
+
+
+ Collect_cong
+
+ (∀ x. P x = Q x) 
+---------------
+{x. P x} = {x. Q x}
+  
+
+
+set_eqI 
+
+∀ x. (x ∈ A —> x ∈ B)
+∀ x. (x ∈ B —> x ∈ A)
+----------------
+ A = B
+
+
+(QUESTION: 
+Shall we use double arrows instead of ∧?
+
+
+set_eq_iff  
+
+A = B 
+
+------------
+∀x. ((x ∈ A -> x ∈ B ) ∧ (x ∈ B -> x ∈ A))
+
+
+(QUESTION: in the following, instead of a deduction, deducing that x \in A ∩ B  and vice-versa,  we have set equality. Shall we keep this format?)
+
+
+Int_def  
+
+A ∩ B = {x. x ∈ A ∧ x ∈ B}
+
+
+
+Alternatively:
+
+Int_iff [simp]: 
+
+c ∈ A ∩ B 
+
+----------
+c ∈ A ∧ c ∈ B
+
+
+(QUESTION: shall we keep the above as it is or write it as two separate lemmas deducing c ∈ A and c ∈ B separately? See IntD1, IntD2.)
+
+IntI
+
+c ∈ A 
+c ∈ B
+
+-------------
+c ∈ A ∩ B 
+
+
+(The following are the analogous for unions:)
+
+ Un_def
+ 
+A ∪ B = {x. x ∈ A ∨ x ∈ B}
+  
+ Un_iff [simp]
+
+ c ∈ A ∪ B 
+-------------
+ c ∈ A ∨ c ∈ B
+
+
+ c ∈ A ∨ c ∈ B
+------------
+c ∈ A ∪ B 
+ 
+
+lemma UnI1 [elim?]: 
+
+c ∈ A
+
+------------
+ c ∈ A ∪ B
+  
+
+(QUESTION: shall we include the symmetric one below ?)
+
+lemma UnI2 [elim?]
+
+c ∈ B
+
+---------
+ c ∈ A ∪ B
+
+
+
+
+
+ 
