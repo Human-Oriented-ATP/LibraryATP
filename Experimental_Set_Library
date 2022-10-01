@@ -30,6 +30,8 @@ QUESTION: shall we use a different format, put the statements together where the
 ---------------
 {x. P x} = {x. Q x}
   
+  
+   TIM: Should the hypothesis say P x <-> Q x rather than P x = Q x ?
 
 
 set_eqI 
@@ -43,6 +45,9 @@ set_eqI
 (QUESTION: 
 Shall we use double arrows instead of ∧?
 
+   TIM: How do you get these mathematical symbols? 
+   TIM: I think we should also have an "intermediate" expansion of set_eq, which would be that A = B if A is a subset of B and B is a subset of A.
+
 
 set_eq_iff  
 
@@ -54,6 +59,7 @@ A = B
 
 (QUESTION: in the following, instead of a deduction, deducing that x \in A ∩ B  and vice-versa,  we have set equality. Shall we keep this format?)
 
+   TIM: I think that for the program, deducing is more useful. That is, we rarely expand A ∩ B directly -- it is much more common to expand the statement x ∈ A ∩ B as x ∈ A ∧ x ∈ B.  Oh wait, you have that below. In that case I don't think I understand your question. What would an alternative format be? 
 
 Int_def  
 
@@ -109,6 +115,7 @@ c ∈ A
   
 
 (QUESTION: shall we include the symmetric one below ?)
+    TIM: I would recommend that we do.
 
 lemma UnI2 [elim?]
 
